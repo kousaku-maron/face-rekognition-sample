@@ -1,5 +1,6 @@
-import { rekognition } from '../repositories'
+import { rekognition } from './../../repositories'
 import { Rekognition, AWSError } from 'aws-sdk'
+import { FACE_COLLECTION_ID } from './../../entities'
 
 type Result = {
   success: boolean
@@ -19,4 +20,9 @@ export const deleteFaceCollection = (collectionID: string) => {
       resolve({ success: true, data })
     })
   })
+}
+
+export const deleteDefaultFaceCollection = async () => {
+  const result = await deleteFaceCollection(FACE_COLLECTION_ID)
+  return result
 }

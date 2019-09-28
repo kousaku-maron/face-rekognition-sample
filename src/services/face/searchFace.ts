@@ -1,5 +1,6 @@
-import { rekognition, setFace, deleteFace } from '../repositories'
+import { rekognition, setFace, deleteFace } from './../../repositories'
 import { Rekognition, AWSError } from 'aws-sdk'
+import { FACE_COLLECTION_ID } from './../../entities'
 
 type Result = {
   success: boolean
@@ -37,4 +38,9 @@ export const searchFace = (collectionID: string, path: string) => {
       resolve({ success: false, error: e })
     }
   })
+}
+
+export const searchDefaultFace = async (path: string) => {
+  const result = await searchFace(FACE_COLLECTION_ID, path)
+  return result
 }

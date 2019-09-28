@@ -1,4 +1,3 @@
-export * from './createFaceCollection'
-export * from './deleteFaceCollection'
-export * from './registerFace'
-export * from './searchFace'
+export * from './collection'
+export * from './bucket'
+export * from './face'

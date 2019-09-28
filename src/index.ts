@@ -1,11 +1,14 @@
-import { createFaceCollection, deleteFaceCollection, registerFace, searchFace } from './services'
+// import { createFaceCollection, deleteFaceCollection, registerFace, searchFace } from './services'
+import { init } from './handlers/init'
 
-const collectionID = 'kurinoSample'
-const faceID = 'kurino'
+init()
 
-const bucket = 'samplefaces'
-const images = ['kurino/test01.png', 'kurino/test02.png', 'kurino/test03.png', 'kurino/test04.png', 'kurino/test05.png']
-const testImage = '../../sample/test05.png'
+// const collectionID = 'kurinoSample'
+// const faceID = 'kurino'
+
+// const bucket = 'samplefaces'
+// const images = ['kurino/test01.png', 'kurino/test02.png', 'kurino/test03.png', 'kurino/test04.png', 'kurino/test05.png']
+// const testImage = '../../sample/test05.png'
 
 // const main = async () => {
 //   try {
@@ -58,16 +61,16 @@ const testImage = '../../sample/test05.png'
 //   }
 // }
 
-const main = async () => {
-  try {
-    const { success, data, error } = await searchFace(collectionID, testImage)
-    if(success && !error) {
-      console.info(data!.FaceMatches![0].Face)
-    }
-    if(error) throw new Error(error.message)
-  } catch (e) {
-    console.error(e)
-  }
-}
+// const main = async () => {
+//   try {
+//     const { success, data, error } = await searchFace(collectionID, testImage)
+//     if(success && !error) {
+//       console.info(data!.FaceMatches![0].Face)
+//     }
+//     if(error) throw new Error(error.message)
+//   } catch (e) {
+//     console.error(e)
+//   }
+// }
 
-main()
+// main()

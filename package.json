@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode=development",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "prepare": "ts-node src/handlers/init.ts",
+    "clear": "ts-node src/handlers/clear.ts"
   },
   "devDependencies": {
     "ts-loader": "^6.1.2",

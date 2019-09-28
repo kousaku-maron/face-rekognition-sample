@@ -1,5 +1,6 @@
-import { rekognition } from '../repositories'
+import { rekognition } from './../../repositories'
 import { Rekognition, AWSError } from 'aws-sdk'
+import { FACE_COLLECTION_ID } from './../../entities'
 
 type Result = {
   success: boolean
@@ -19,4 +20,9 @@ export const createFaceCollection = (collectionID: string) => {
       resolve({ success: true, data })
     })
   })
+}
+
+export const createDefaultFaceCollection = async () => {
+  const result = await createFaceCollection(FACE_COLLECTION_ID)
+  return result
 }
