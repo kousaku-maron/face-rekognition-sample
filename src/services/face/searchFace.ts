@@ -1,5 +1,5 @@
 import { rekognition } from './../../repositories'
-import { setFace, deleteFace } from './../../repositories/searchFace'
+import { setFace /* , deleteFace */ } from './../../repositories/searchFace'
 import { Rekognition, AWSError } from 'aws-sdk'
 import { FACE_COLLECTION_ID } from './../../entities'
 
@@ -30,8 +30,8 @@ export const searchFace = (collectionID: string, path: string) => {
       rekognition.searchFacesByImage(params, async (err, data) => {
         if (err) throw err
 
-        const { bucket, name } = await deleteFace()
-        if (!bucket || !name) throw new Error('写真の削除に失敗しました。')
+        // const { bucket, name } = await deleteFace()
+        // if (!bucket || !name) throw new Error('写真の削除に失敗しました。')
 
         resolve({ success: true, data })
       })
