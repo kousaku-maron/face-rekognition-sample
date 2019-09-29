@@ -1,7 +1,15 @@
-// import { createFaceCollection, deleteFaceCollection, registerFace, searchFace } from './services'
-import { init } from './handlers/init'
+import program from 'commander'
+import { init, clear } from './handlers'
 
-init()
+// program
+//   .version('0.0.1')
+//   .option('-i', '--init', 'create s3 bucket and rekognition collection')
+//   .option('-c', '--clear', 'delete s3 bucket and rekognition collection')
+//   .option('-r', '--register <faceID>', 'register face images', )
+//   .option('-p', '--predict', 'predict face images')
+
+
+
 
 // const collectionID = 'kurinoSample'
 // const faceID = 'kurino'

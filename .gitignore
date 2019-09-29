@@ -1,4 +1,5 @@
 dist
 sample
 .env
+*.log
 node_modules

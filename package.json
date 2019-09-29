@@ -7,9 +7,12 @@
     "build": "webpack --mode=development",
     "start": "ts-node src/index.ts",
     "prepare": "ts-node src/handlers/init.ts",
-    "clear": "ts-node src/handlers/clear.ts"
+    "clear": "ts-node src/handlers/clear.ts",
+    "register": "ts-node src/handlers/register.ts",
+    "search": "ts-node src/handlers/search.ts"
   },
   "devDependencies": {
+    "@types/uuid": "^3.4.5",
     "ts-loader": "^6.1.2",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.3",
@@ -20,7 +23,9 @@
   "dependencies": {
     "@types/dotenv": "^6.1.1",
     "aws-sdk": "^2.537.0",
+    "commander": "^3.0.2",
     "dotenv": "^8.1.0",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "uuid": "^3.3.3"
   }
 }

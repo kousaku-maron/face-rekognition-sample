@@ -1,4 +1,5 @@
-import { rekognition, setFace, deleteFace } from './../../repositories'
+import { rekognition } from './../../repositories'
+import { setFace, deleteFace } from './../../repositories/searchFace'
 import { Rekognition, AWSError } from 'aws-sdk'
 import { FACE_COLLECTION_ID } from './../../entities'
 
