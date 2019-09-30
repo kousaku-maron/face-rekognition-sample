@@ -1,7 +1,6 @@
 import { s3 } from './aws'
 import fs from 'fs'
 import path from 'path'
-import uuid from 'uuid/v1'
 import { SEARCH_FACE_BUCKET } from '../entities'
 
 type Result = {
@@ -9,10 +8,9 @@ type Result = {
   name?: string
 }
 
-export const setFace = (_path: string) => {
+export const setFace = (_path: string, key: string) => {
   return new Promise<Result>(resolve => {
     try {
-      const key = `${uuid()}.png`
       const imagePath = path.resolve(__dirname, _path)
       console.info(`read image from ${imagePath}`)
       const image = fs.readFileSync(imagePath)
@@ -35,20 +33,20 @@ export const setFace = (_path: string) => {
 // export const getFace = (etag: string) => {
 // }
 
-// export const deleteFace = () => {
-//   return new Promise<Result>(resolve => {
-//     try {
-//       const params = {
-//         Bucket: SEARCH_FACE_BUCKET,
-//         Key: SEARCH_FACE_NAME
-//       }
-//       s3.deleteObject(params, (err, data) => {
-//         if (err) throw new Error(err.message)
-//         resolve({ bucket: SEARCH_FACE_BUCKET, name: SEARCH_FACE_NAME })
-//       })
-//     } catch (e) {
-//       console.error(e)
-//       resolve({})
-//     }
-//   })
-// }
+export const deleteFace = (key: string) => {
+  return new Promise<Result>(resolve => {
+    try {
+      const params = {
+        Bucket: SEARCH_FACE_BUCKET,
+        Key: key
+      }
+      s3.deleteObject(params, (err, data) => {
+        if (err) throw new Error(err.message)
+        resolve({ bucket: SEARCH_FACE_BUCKET, name: key })
+      })
+    } catch (e) {
+      console.error(e)
+      resolve({})
+    }
+  })
+}
