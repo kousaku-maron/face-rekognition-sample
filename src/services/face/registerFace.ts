@@ -31,7 +31,9 @@ export const registerFace = (collectionID: string, faceID: string, path: string)
       }
   
       rekognition.indexFaces(params, async (err, data) => {
-        if (err) throw err
+        if (err) {
+          resolve({ success: false, error: err })
+        }
 
         const { bucket, name } = await deleteFace(key)
         if (!bucket || !name) throw new Error('写真の削除に失敗しました。')

@@ -12,7 +12,7 @@ export const setFace = (_path: string, key: string) => {
   return new Promise<Result>(resolve => {
     try {
       const imagePath = path.resolve(__dirname, _path)
-      console.info(`read image from ${imagePath}`)
+      // console.info(`read image from ${imagePath}`)
       const image = fs.readFileSync(imagePath)
       const params = {
         Bucket: REGISTER_FACE_BUCKET,
